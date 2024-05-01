@@ -1,0 +1,5 @@
+facenet_pytorch
+torch
+Pillow
+pandas
+matplotlib
