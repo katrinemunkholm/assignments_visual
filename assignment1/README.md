@@ -17,13 +17,22 @@ The data set is included in the repository in the folder "data/flowers". Otherwi
 - Pandas (`pandas`)
 
 ## Reproduction
-1. Clone the repository: git clone <https://github.com/katrinemunkholm/cds_visual_assignments.git>
 
-2. The data set should be named "flowers" and placed in the folder "data"
+1. By running the following code in the command line, an environment is created and requirements are installed:
 
-3. Install the required dependencies: pip install -r requirements.txt
+```bash setup.sh```
 
-4. Run the script: python Image_search.py
+
+3. Activate the environment and run the script by executing:
+
+```bash run.sh```
+
+    and / or 
+
+```bash runCNN.sh```
+
+for image search using a pretrained CNN.
+
 
 5. Check the "out" folder for the CSV file containing the top 5 similar images to the target image.
 

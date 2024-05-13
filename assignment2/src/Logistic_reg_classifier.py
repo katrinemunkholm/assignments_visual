@@ -84,7 +84,7 @@ def plot_results(coefs, x_test_reshaped, y_test, clf, class_names):
     print("The metrics of the classification report are:", cm)
     clf_util.plot_cm(y_test, y_pred, normalized=True)
     report_df = pd.DataFrame(metrics.classification_report(y_test, y_pred, target_names=class_names, output_dict=True)).transpose()
-    report_df.to_csv("../out/Logistic_regression_classification_report.csv")
+    report_df.to_csv("out/Logistic_regression_classification_report.csv")
     print("The classification report is saved as 'Logistic_regression_classification_report.CSV' in the folder 'out'")
 
 

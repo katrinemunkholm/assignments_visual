@@ -78,9 +78,9 @@ def save_to_csv(results, csv_file_path):
 
 # Main function to run the task
 def main():
-    folder_path = os.path.join("..", "in", "flowers")
+    folder_path = os.path.join("in", "flowers")
     top_5_similar = find_similar_images(folder_path, "image_0158.jpg", top_n=5)
-    csv_file_path = os.path.join("..", "out", "top_5_similar_images.csv")
+    csv_file_path = os.path.join("out", "top_5_similar_images.csv")
     save_to_csv(top_5_similar, csv_file_path)
 
 

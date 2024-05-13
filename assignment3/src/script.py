@@ -205,7 +205,7 @@ def main(data_path, output_dir):
 # Running main(), parsing arguments. Defaults are set
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Pretrained image embeddings for document classification")
-    parser.add_argument("--data_path", type=str, default="../in/Tobacco3482", help="Data path")
-    parser.add_argument("--output_dir", type=str, default="../out", help="Directory to save results")
+    parser.add_argument("--data_path", type=str, default="in/Tobacco3482", help="Data path")
+    parser.add_argument("--output_dir", type=str, default="out", help="Directory to save results")
     args = parser.parse_args()
     main(args.data_path, args.output_dir)

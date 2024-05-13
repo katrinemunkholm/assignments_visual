@@ -1,5 +1,4 @@
-tensorflow-cpu
-matplotlib
-seaborn
-scikit-learn
-pandas
+matplotlib==3.8.4
+numpy==1.26.4
+scikit_learn==1.4.2
+tensorflow==2.16.1

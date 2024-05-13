@@ -73,7 +73,7 @@ def save_loss_curve(mlp_clf):
     plt.xlabel('Number of Iterations')
     plt.ylabel('Loss')
     plt.grid(True)
-    plt.savefig(os.path.join("../out/loss_curve_MLP.png"))
+    plt.savefig(os.path.join("out/loss_curve_MLP.png"))
 
 # Create metrics for classification report, create report and save it
 def evaluate_mlp_classifier(mlp_clf, x_test_reshaped, y_test, class_names):
@@ -84,7 +84,7 @@ def evaluate_mlp_classifier(mlp_clf, x_test_reshaped, y_test, class_names):
     print("MLP Classification Report:")
     print(mlp_report)
     mlp_classification_report = pd.DataFrame(metrics.classification_report(y_test, mlp_predictions, target_names=class_names, output_dict=True)).transpose()
-    mlp_classification_report.to_csv(os.path.join("../out/MLP_classification_report.csv"))
+    mlp_classification_report.to_csv(os.path.join("out/MLP_classification_report.csv"))
     print("A plot of the loss curve during training has been saved as a .png file in the folder 'out'")
 
 #Main function for running the script
