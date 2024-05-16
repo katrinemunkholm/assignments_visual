@@ -6,6 +6,7 @@ from numpy.linalg import norm  # Used to normalize feature vectors
 from tensorflow.keras.preprocessing.image import load_img, img_to_array  # For loading and converting images
 from tensorflow.keras.applications.vgg16 import VGG16, preprocess_input  # VGG16 model and preprocessing
 from sklearn.neighbors import NearestNeighbors  # For k-nearest neighbors functionality
+import argparse
 
 def extract_features(img_path, model):
     """
@@ -80,13 +81,24 @@ def save_results(results, output_dir):
         for image, distance in results:
             writer.writerow([image, distance])
 
+# Function to parse command-line arguments
+def parse_arguments():
+    parser = argparse.ArgumentParser(description="Find similar images to the target image.")
+    parser.add_argument("target_image_name", type=str, help="Name of the target image file")
+    parser.add_argument("--folder_path", type=str, default=os.path.join("in", "flowers"), help="Path to the folder containing images")
+    parser.add_argument("--top_n", type=int, default=5, help="Number of similar images to return")
+    return parser.parse_args()
+
+
 def main():
-    data_directory = 'in/flowers'
-    target_image_path = 'in/flowers/image_0158.jpg'
+    args = parse_arguments()
+    data_directory = args.folder_path
+    target_image_path = os.path.join(data_directory, args.target_image_name)
+    top_n = args.top_n
     output_directory = 'out'
-    top_n = 5
+    
     results = image_search(data_directory, target_image_path, top_n)
-    save_results(results, output_directory, )
+    save_results(results, output_directory)
     print(f'Results saved to {output_directory}/top_5_similar_images_CNN.csv')
 
 if __name__ == "__main__":

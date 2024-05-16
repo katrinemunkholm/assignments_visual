@@ -3,8 +3,8 @@ Assignment 1 - Simple image search algorithm
 Author: Katrine Munkholm Hygebjerg-Hansen
 Elective: Visual Analytics, Cultural Data Science Spring 2024
 Teacher: Ross Deans Kristensen-McLachlan
-
 """
+
 # including the home directory
 import os
 
@@ -19,6 +19,8 @@ sys.path.append(os.path.join(".."))
 # plotting tool
 import matplotlib.pyplot as plt
 
+# for handling command-line arguments
+import argparse
 
 
 # Function to load image from image path
@@ -39,7 +41,6 @@ def calculate_chi_squared_distance(hist1, hist2):
 
 # Function to find similar image
 """
-
 Given a folder path containing images, the function finds similar images to the target image within the folder.
 
 Args:
@@ -48,7 +49,7 @@ Args:
     top_n (optional): Number of similar images to return. Defaults to 5.
 
 Returns:
-   A list of containing the filenames of the top N similar images and their respective distances. Default is 5.
+   A list of containing the filenames of the top N similar images and their respective distances.
 """
 def find_similar_images(folder_path, target_image_name, top_n=5):
     target_image_path = os.path.join(folder_path, target_image_name)
@@ -67,7 +68,6 @@ def find_similar_images(folder_path, target_image_name, top_n=5):
     sorted_distances = sorted(distances.items(), key=lambda x: x[1])
     return sorted_distances[:top_n]
 
-
 # Function to save results 
 def save_to_csv(results, csv_file_path):
     with open(csv_file_path, 'w') as f:
@@ -76,10 +76,18 @@ def save_to_csv(results, csv_file_path):
             f.write(f"{item[0]},{item[1]}\n")
     print("CSV file saved to folder 'out'.")
 
+# Function to parse command-line arguments
+def parse_arguments():
+    parser = argparse.ArgumentParser(description="Find similar images to the target image.")
+    parser.add_argument("target_image_name", type=str, help="Name of the target image file")
+    parser.add_argument("--folder_path", type=str, default=os.path.join("in", "flowers"), help="Path to the folder containing images")
+    parser.add_argument("--top_n", type=int, default=5, help="Number of similar images to return")
+    return parser.parse_args()
+
 # Main function to run the task
 def main():
-    folder_path = os.path.join("in", "flowers")
-    top_5_similar = find_similar_images(folder_path, "image_0158.jpg", top_n=5)
+    args = parse_arguments()
+    top_5_similar = find_similar_images(args.folder_path, args.target_image_name, top_n=args.top_n)
     csv_file_path = os.path.join("out", "top_5_similar_images.csv")
     save_to_csv(top_5_similar, csv_file_path)
 
