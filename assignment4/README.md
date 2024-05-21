@@ -1,11 +1,5 @@
 # Assignment 4: Historical Newspaper Face Detection
 
-## Overview
-
-- **Author**: Katrine Munkholm Hygebjerg-Hansen
-- **Elective**: Visual Analytics, Cultural Data Science Spring 2024
-- **Teacher**: Ross Deans Kristensen-McLachlan
-
 ## Description
 
 This script analyzes historical newspaper image files to detect human faces using a pretrained CNN model (`MTCNN` from `facenet_pytorch`). It processes images from three Swiss newspapers: the Journal de Genève (JDG), the Gazette de Lausanne (GDL), and the Impartial (IMP) spanning over two centuries. The script aggregates the detection results by decade and produces both statistical summaries and visual plots representing the prevalence of human faces over time.
@@ -47,7 +41,7 @@ The images analyzed are sourced from the Journal de Genève (JDG), the Gazette d
 `matplotlib==3.8.4`
 `numpy==1.26.4`
 `pandas==2.2.2`
-`Pillow==10.3.0`
+`Pillow==10.2.0`
 
 ### Environment Setup and Execution
 
@@ -77,12 +71,12 @@ Outputs will be saved in the `out` directory.
 
 ## Analysis Summary and Interpretation
 
-The plots show a significant increase in the depiction of human faces in Swiss newspapers over the studied period. Notably, the GDL and IMP showed a dramatic rise in face prevalence from the 1980s onwards. Technological advances, especially the shift from black and white to color printing in the 1980s, and a cultural shift towards visual media, may explain some of the obsrved increase in human faces in newspapers in these decades.
+The plots show an increase in the depiction of human faces in Swiss newspapers over the studied period. Notably, the GDL and IMP showed a dramatic rise in face prevalence from the 1980s onwards. Technological advances, especially the shift from black and white to color printing in the 1980s, and a cultural shift towards visual media, may explain some of the obsrved increase in human faces in newspapers in these decades. 
 
 
 ## Limitations and Future Work
 
-This analysis is constrained by the quality of the newspaper scans and the performance of the face detection model. Some scans could not be processed due to their poor quality, leading to potential underestimation of faces. Future improvements could include:
+This analysis is influenced by the quality of the newspaper scans and the performance of the face detection model. Several scans could not be processed due to poor quality, which may result in an underestimation of the number of faces. Specifically, 3 images from GDL, 2 images from IMP, and 1 image from JDG were not processed, as indicated by terminal messages during script execution. Future improvements could include:
 
 ### Limitations
 1. **Quality of Scans**: Poor scan quality affects face detection accuracy, potentially leading to underestimations.
@@ -128,6 +122,5 @@ assignment4/
 ├── requirements.txt
 ├── README.md
 ├── setup.sh
-├── runLogReg.sh
-└── runMLP.sh
+└── run.sh
 ```

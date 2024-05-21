@@ -1,11 +1,23 @@
+"""
+Assignment 1 - Simple image search algorithm, CNN
+Author: Katrine Munkholm Hygebjerg-Hansen
+Elective: Visual Analytics, Cultural Data Science Spring 2024
+Teacher: Ross Deans Kristensen-McLachlan
+"""
 
+# including the home directory
 import os
-import csv
-import numpy as np  # Used for numerical operations on arrays
-from numpy.linalg import norm  # Used to normalize feature vectors
-from tensorflow.keras.preprocessing.image import load_img, img_to_array  # For loading and converting images
-from tensorflow.keras.applications.vgg16 import VGG16, preprocess_input  # VGG16 model and preprocessing
-from sklearn.neighbors import NearestNeighbors  # For k-nearest neighbors functionality
+# image processing tools
+import cv2
+import numpy as np 
+from numpy.linalg import norm  
+# For loading and converting images
+from tensorflow.keras.preprocessing.image import load_img, img_to_array  
+# VGG16 model and preprocessing
+from tensorflow.keras.applications.vgg16 import VGG16, preprocess_input  
+ # For k-nearest neighbors functionality
+from sklearn.neighbors import NearestNeighbors 
+# For argument parsing
 import argparse
 
 def extract_features(img_path, model):
@@ -55,10 +67,11 @@ def image_search(data_dir, target_img_path, top_n=5):
     feature_list = []
     filenames = []
     for filename in sorted(os.listdir(data_dir)):
-        file_path = os.path.join(data_dir, filename)
-        features = extract_features(file_path, model)
-        feature_list.append(features)
-        filenames.append(filename)  # Save only filename for CSV output
+        if os.path.join(data_dir, filename) != target_img_path:  # Exclude target image
+            file_path = os.path.join(data_dir, filename)
+            features = extract_features(file_path, model)
+            feature_list.append(features)
+            filenames.append(filename) 
     neighbors = NearestNeighbors(n_neighbors=top_n, algorithm='brute', metric='cosine')
     neighbors.fit(feature_list)
     distances, indices = neighbors.kneighbors([target_features])
@@ -89,7 +102,7 @@ def parse_arguments():
     parser.add_argument("--top_n", type=int, default=5, help="Number of similar images to return")
     return parser.parse_args()
 
-
+# Main function to run tasks
 def main():
     args = parse_arguments()
     data_directory = args.folder_path

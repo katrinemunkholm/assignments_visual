@@ -5,7 +5,7 @@ Elective: Visual Analytics, Cultural Data Science Spring 2024
 Teacher: Ross Deans Kristensen-McLachlan
 """
 
-
+# Import neccessary libraries. Face detection, data manipulation and numerical operations
 from facenet_pytorch import MTCNN
 from PIL import Image
 import pandas as pd
@@ -80,12 +80,12 @@ def generate_plots_and_csv(data, output_dir, newspaper_name):
 
 def main():
     # Paths to newspaper folders
-    base_input_dir = "../in/newspapers"
-    output_dir = "../out"
+    input_dir = "in/newspapers"
+    output_dir = "out"
     newspapers = ["GDL", "IMP", "JDG"]
     
     for newspaper in newspapers:
-        folder_path = os.path.join(base_input_dir, newspaper)
+        folder_path = os.path.join(input_dir, newspaper)
         summarized_data = analyze_newspaper_folder(folder_path)
         generate_plots_and_csv(summarized_data, output_dir, newspaper)
 

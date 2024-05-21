@@ -7,18 +7,14 @@ Teacher: Ross Deans Kristensen-McLachlan
 
 # including the home directory
 import os
-
 # image processing tools
 import cv2
 import numpy as np
-
 # Adding parent directory to path
 import sys
 sys.path.append(os.path.join(".."))
-
 # plotting tool
 import matplotlib.pyplot as plt
-
 # for handling command-line arguments
 import argparse
 

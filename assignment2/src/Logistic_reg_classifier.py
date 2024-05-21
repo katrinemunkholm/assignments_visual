@@ -53,7 +53,6 @@ def rgb_to_grayscale(images):
 ''' 
 Grayscaling, scaling and reshaping. 
 Returns the preprocessed data.
-
 '''
 def preprocess_data(x_train, x_test):
     x_train_grayscale = rgb_to_grayscale(x_train)

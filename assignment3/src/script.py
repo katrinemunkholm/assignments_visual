@@ -8,24 +8,15 @@ Teacher: Ross Deans Kristensen-McLachlan
 
 # Importing necessary libraries
 import tensorflow as tf
-from tensorflow.keras.preprocessing.image import (load_img,
-                                                  img_to_array,
-                                                  ImageDataGenerator)
-from tensorflow.keras.applications.vgg16 import (preprocess_input,
-                                                 decode_predictions,
-                                                 VGG16)
-                                            
-from tensorflow.keras.layers import (Flatten, 
-                                     Dense, 
-                                     BatchNormalization,
-                                     Dropout)  
+from tensorflow.keras.preprocessing.image import (load_img, img_to_array,ImageDataGenerator)
+from tensorflow.keras.applications.vgg16 import (preprocess_input, decode_predictions, VGG16)                          
+from tensorflow.keras.layers import (Flatten, Dense, BatchNormalization, Dropout) 
 from tensorflow.keras.models import Model
 from tensorflow.keras.optimizers.schedules import ExponentialDecay
 from tensorflow.keras.optimizers import SGD, Adam
 from sklearn.preprocessing import LabelBinarizer
 from sklearn.metrics import classification_report
 from sklearn.model_selection import train_test_split
-
 import os
 import argparse
 import numpy as np
@@ -76,6 +67,7 @@ def preprocess_images(images):
 
     return processed_images
 
+# Build model with adjusted parameters
 def build_model(num_classes):
     """
     Builds a convolutional neural network model based on the VGG16 architecture, fine-tuned for improved performance.
@@ -95,7 +87,7 @@ def build_model(num_classes):
 
     # Flatten the output of the last convolutional layer to prepare for fully connected layers
     x = Flatten()(base_model.output)
-
+    
     # Add a fully connected layer with 256 units and ReLU activation function for feature extraction
     x = Dense(256, activation='relu')(x)
 
@@ -158,18 +150,19 @@ def plot_loss(H, epochs, output_dir):
     plt.show()
 
 
+# Function to parse command-line arguments
+def parse_arguments():
+    parser = argparse.ArgumentParser(description="Pretrained image embeddings for document classification")
+    parser.add_argument("--data_path", type=str, default="in/Tobacco3482", help="Data path")
+    parser.add_argument("--output_dir", type=str, default="out", help="Directory to save results")
+    return parser.parse_args()
+
 # Main function for running the task
-def main(data_path, output_dir):
-    """
-    Main function to load data, build and train the model, and save results.
+def main():
+    args = parse_arguments()
+    data_path = args.data_path
+    output_dir = args.output_dir
 
-    Args:
-    - data_path (str): Path to image data.
-    - output_dir (str): Directory to save results.
-
-    Returns:
-    - None
-    """
     # Load data
     images = load_data(data_path)
     processed_images = preprocess_images(images)
@@ -202,10 +195,6 @@ def main(data_path, output_dir):
     with open(os.path.join(output_dir, 'classification_report.txt'), 'w') as f:
         f.write(report)
 
-# Running main(), parsing arguments. Defaults are set
+# Running main()
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Pretrained image embeddings for document classification")
-    parser.add_argument("--data_path", type=str, default="in/Tobacco3482", help="Data path")
-    parser.add_argument("--output_dir", type=str, default="out", help="Directory to save results")
-    args = parser.parse_args()
-    main(args.data_path, args.output_dir)
+    main()
