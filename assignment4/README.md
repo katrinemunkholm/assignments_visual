@@ -71,7 +71,88 @@ Outputs will be saved in the `out` directory.
 
 ## Analysis Summary and Interpretation
 
-The plots show an increase in the depiction of human faces in Swiss newspapers over the studied period. Notably, the GDL and IMP showed a dramatic rise in face prevalence from the 1980s onwards. Technological advances, especially the shift from black and white to color printing in the 1980s, and a cultural shift towards visual media, may explain some of the obsrved increase in human faces in newspapers in these decades. 
+
+### GDL summary, rounded
+
+| Decade | Total Faces | Pages With Faces | Total Pages | Percentage With Faces |
+|--------|-------------|------------------|-------------|-----------------------|
+| 1790   | 3           | 3                | 20          | 15.00                 |
+| 1800   | 10          | 9                | 36          | 25.00                 |
+| 1810   | 2           | 2                | 26          | 7.69                  |
+| 1820   | 1           | 1                | 32          | 3.13                  |
+| 1830   | 2           | 2                | 36          | 5.56                  |
+| 1840   | 0           | 0                | 24          | 0.00                  |
+| 1850   | 2           | 2                | 24          | 8.33                  |
+| 1860   | 1           | 1                | 24          | 4.17                  |
+| 1870   | 1           | 1                | 24          | 4.17                  |
+| 1880   | 1           | 1                | 24          | 4.17                  |
+| 1890   | 1           | 1                | 26          | 3.85                  |
+| 1900   | 4           | 4                | 28          | 14.29                 |
+| 1910   | 4           | 4                | 30          | 13.33                 |
+| 1920   | 8           | 6                | 28          | 21.43                 |
+| 1930   | 8           | 6                | 28          | 21.43                 |
+| 1940   | 10          | 8                | 38          | 21.05                 |
+| 1950   | 8           | 8                | 48          | 16.67                 |
+| 1960   | 25          | 19               | 90          | 21.11                 |
+| 1970   | 14          | 11               | 78          | 14.10                 |
+| 1980   | 60          | 44               | 136         | 32.35                 |
+| 1990   | 115         | 74               | 208         | 35.58                 |
+
+### IMP Summary, rounded
+
+| Decade | Total Faces | Pages With Faces | Total Pages | Percentage With Faces |
+|--------|-------------|------------------|-------------|-----------------------|
+| 1880   | 1           | 1                | 34          | 2.94                  |
+| 1890   | 17          | 12               | 52          | 23.08                 |
+| 1900   | 25          | 17               | 68          | 25.00                 |
+| 1910   | 27          | 17               | 52          | 32.69                 |
+| 1920   | 46          | 29               | 64          | 45.31                 |
+| 1930   | 31          | 19               | 54          | 35.19                 |
+| 1940   | 24          | 16               | 56          | 28.57                 |
+| 1950   | 105         | 47               | 94          | 50.00                 |
+| 1960   | 175         | 60               | 144         | 41.67                 |
+| 1970   | 202         | 82               | 200         | 41.00                 |
+| 1980   | 343         | 106              | 210         | 50.48                 |
+| 1990   | 210         | 96               | 202         | 47.52                 |
+| 2000   | 657         | 153              | 216         | 70.83                 |
+| 2010   | 699         | 146              | 188         | 77.66                 |
+
+
+
+### JDG Summary, rounded
+
+| Decade | Total Faces | Pages With Faces | Total Pages | Percentage With Faces |
+|--------|-------------|------------------|-------------|-----------------------|
+| 1820   | 0           | 0                | 26          | 0.00                  |
+| 1830   | 1           | 1                | 54          | 1.85                  |
+| 1840   | 1           | 1                | 50          | 2.00                  |
+| 1850   | 2           | 2                | 48          | 4.17                  |
+| 1860   | 4           | 3                | 48          | 6.25                  |
+| 1870   | 5           | 2                | 46          | 4.35                  |
+| 1880   | 6           | 5                | 50          | 10.00                 |
+| 1890   | 1           | 1                | 52          | 1.92                  |
+| 1900   | 11          | 9                | 54          | 16.67                 |
+| 1910   | 6           | 4                | 50          | 8.00                  |
+| 1920   | 21          | 11               | 110         | 10.00                 |
+| 1930   | 32          | 20               | 104         | 19.23                 |
+| 1940   | 13          | 10               | 92          | 10.87                 |
+| 1950   | 49          | 29               | 116         | 25.00                 |
+| 1960   | 44          | 31               | 166         | 18.67                 |
+| 1970   | 48          | 41               | 186         | 22.04                 |
+| 1980   | 143         | 106              | 306         | 34.64                 |
+| 1990   | 190         | 123              | 424         | 29.01                 |
+
+### Trends and Interpretation
+
+- **Increase in Visual Content**: Across all three newspapers, there is a noticeable rise in the number of faces and the percentage of pages with faces towards the more recent decades, indicating a growing emphasis on visual content.
+
+- **Variability Among Newspapers**: The overall trend is consistent, but the extent and timeline vary. The IMP shows a dramatic increase from the 1890s to the 2000s, peaking at 77.66% in the 2010s. In contrast, the GDL has a more gradual increase with significant jumps in the 1980s and 1990s.
+
+- **Historical Context**: The presence of faces on newspaper pages is linked to technological advancements and cultural shifts. Limited visual content in the early 19th century was due to technological constraints. As printing technology, photography, and digital imaging improved, newspapers began incorporating more images. Sharp increases in the mid to late 20th century align with advanced printing techniques and a cultural shift towards more visually engaging media. This context aligns with the observed results.
+
+- **Reader Preferences and Competition**: The rise of television and digital media, which are inherently visual, likely pressured newspapers to enhance their visual content to remain competitive.
+
+Overall, the increasing presence of faces and visual content in newspapers underscores a transformation in how information is presented, reflecting broader societal and technological changes over the centuries.
 
 
 ## Limitations and Future Work

@@ -76,11 +76,32 @@ The project results in a trained classifier capable of distinguishing between va
 - High accuracy for visually distinct document types such as advertisements and emails.
 - Lower performance on more heterogeneously styled documents like scientific papers, which can vary significantly in appearance.
 
-The classification report reveals high F1-scores across multiple classes, particularly notable in classes such as "Email" and "ADVE," where predictions were accurate approximately 94% and 89% of the time, respectively.
-Instances of lower accuracy scores are evident in the "Scientific" class. One possible explanation for this could be the diverse nature of scientific disciplines, each adhering to distinct conventions, resulting in varying visual appearances of articles and papers. This diversity may pose challenges for the CNN in accurately classifying documents belonging to this category. Overall, the model demonstrates satisfactory performance in classifying documents across the 10 categories solely based on their visual appearance, as indicated by the weighted average f1-score of 0.79.
+### Classification report
+
+|              | precision | recall | f1-score | support |
+|--------------|-----------|--------|----------|---------|
+| ADVE         | 0.82      | 0.88   | 0.85     | 57      |
+| Email        | 0.93      | 0.94   | 0.94     | 135     |
+| Form         | 0.75      | 0.83   | 0.79     | 88      |
+| Letter       | 0.76      | 0.82   | 0.79     | 122     |
+| Memo         | 0.67      | 0.83   | 0.74     | 109     |
+| News         | 0.72      | 0.68   | 0.70     | 34      |
+| Note         | 0.85      | 0.61   | 0.71     | 36      |
+| Report       | 0.72      | 0.48   | 0.57     | 48      |
+| Resume       | 0.67      | 0.67   | 0.67     | 15      |
+| Scientific   | 0.64      | 0.40   | 0.49     | 53      |
+| **accuracy** |           |        | 0.77     | 697     |
+| macro avg    | 0.75      | 0.71   | 0.72     | 697     |
+| weighted avg | 0.77      | 0.77   | 0.77     | 697     |
+
+
+The classification report reveals high F1-scores across multiple classes, particularly notable in classes such as "Email" and "Note," where predictions were accurate approximately 93% and 85% of the time, respectively.
+Instances of lower accuracy scores are evident in the "Scientific" class. One possible explanation for this could be the diverse nature of scientific disciplines, each adhering to distinct conventions, resulting in varying visual appearances of articles and papers. This diversity may pose challenges for the CNN in accurately classifying documents belonging to this category. Overall, the model demonstrates satisfactory performance in classifying documents across the 10 categories solely based on their visual appearance, as indicated by the weighted average f1-score of 0.77.
 
 When visually inspecting the loss curves, they indicate a model which generally has a good fit to the data. 
 Both train_loss and val_loss are decreasing gradually through the epochs, indicating that they are learning well from the data. Though there is a slight gap between the two curves, the distance hereof is rather consistent, indicating that the model is not just overfitting to the training data. Additionally, the curves seem to be flattening out at the end, indicating that the chosen number of epochs is good fit for this model and provided data.
+
+
 
 ## Limitations and steps for improvement
 
