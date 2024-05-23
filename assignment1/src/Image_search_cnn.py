@@ -17,6 +17,8 @@ from tensorflow.keras.preprocessing.image import load_img, img_to_array
 from tensorflow.keras.applications.vgg16 import VGG16, preprocess_input  
  # For k-nearest neighbors functionality
 from sklearn.neighbors import NearestNeighbors 
+# For writing CSV files
+import csv
 # For argument parsing
 import argparse
 
@@ -67,7 +69,7 @@ def image_search(data_dir, target_img_path, top_n=5):
     feature_list = []
     filenames = []
     for filename in sorted(os.listdir(data_dir)):
-        if os.path.join(data_dir, filename) != target_img_path:  # Exclude target image
+        if os.path.join(data_dir, filename) != target_img_path and filename.endswith("jpg"):  # Exclude target image and ensure file is a .jpg
             file_path = os.path.join(data_dir, filename)
             features = extract_features(file_path, model)
             feature_list.append(features)

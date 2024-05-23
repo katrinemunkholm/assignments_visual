@@ -25,6 +25,14 @@ def load_image(image_path):
 
 # Function to calculate histogram of a given image
 def calculate_histogram(image):
+    # Check if the image is loaded correctly
+    if image is None:
+        raise ValueError(f"The image at path '{image}' could not be loaded. Please check the file path.")
+    
+    # Check if the image has 3 channels
+    if len(image.shape) != 3 or image.shape[2] != 3:
+        raise ValueError("The image does not have 3 channels. Ensure it is a color image.")
+    
     return cv2.calcHist([image], [0, 1, 2], None, [256, 256, 256], [0, 256, 0, 256, 0, 256])
 
 # Function to normalize histogram
@@ -35,7 +43,7 @@ def normalize_histogram(hist):
 def calculate_chi_squared_distance(hist1, hist2):
     return cv2.compareHist(hist1, hist2, cv2.HISTCMP_CHISQR)
 
-# Function to find similar image
+# Function to find similar images
 """
 Given a folder path containing images, the function finds similar images to the target image within the folder.
 
@@ -54,13 +62,14 @@ def find_similar_images(folder_path, target_image_name, top_n=5):
     target_hist = normalize_histogram(target_hist)
     distances = {}
     for filename in os.listdir(folder_path):
-        if filename != target_image_name:
+        if filename != target_image_name and filename.endswith("jpg"):
             image_path = os.path.join(folder_path, filename)
             image = load_image(image_path)
-            hist = calculate_histogram(image)
-            hist = normalize_histogram(hist)
-            distance = calculate_chi_squared_distance(target_hist, hist)
-            distances[filename] = distance
+            if image is not None and len(image.shape) == 3 and image.shape[2] == 3:  
+                hist = calculate_histogram(image)
+                hist = normalize_histogram(hist)
+                distance = calculate_chi_squared_distance(target_hist, hist)
+                distances[filename] = distance
     sorted_distances = sorted(distances.items(), key=lambda x: x[1])
     return sorted_distances[:top_n]
 

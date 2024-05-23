@@ -19,8 +19,14 @@ For this assignment, the main objectives were to develop Python scripts capable 
 
 ## Data Source
 
-The CIFAR-10 dataset consists of 60,000 32x32 color images in 10 classes, each with 6,000 images. The dataset is split into 50,000 training images and 10,000 testing images. The dataset can be downloaded from the CIFAR-10 [website](https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz).
+The CIFAR-10 dataset consists of 60,000 32x32 color images in 10 classes, each with 6,000 images. The dataset is split into 50,000 training images and 10,000 testing images. 
+
+The dataset is downloaded automatically when running the script.
+More information about the dataset can be found [here](https://www.cs.toronto.edu/~kriz/cifar.html)
+
+Though not necessary for running the script, the dataset can be manually downloaded [here](https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz).
 See file structure below. 
+
 
 ## Setup and Running the Analysis
 
